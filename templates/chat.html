@@ -1,0 +1,46 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot</title>
+</head>
+<body>
+    <h1>Simple Chatbot</h1>
+    <form action="/chat" method="POST">
+        <input type="text" name="message" placeholder="Type your message here" required>
+        <button type="submit">Send</button>
+    </form>
+    {% if user_input %}
+        <h3>You:</h3>
+        <p>{{ user_input }}</p>
+        <h3>Bot:</h3>
+        <p>{{ reply }}</p>
+    {% endif %}
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot</title>
+</head>
+<body>
+    <h1>Chat with AI</h1>
+    <textarea id="input" rows="4" cols="50" placeholder="Type your message..."></textarea><br>
+    <button onclick="sendMessage()">Send</button>
+    <p><strong>Response:</strong></p>
+    <div id="response"></div>
+
+    <script>
+        async function sendMessage() {
+            const input = document.getElementById('input').value;
+            const response = await fetch('/chat', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({message: input})
+            });
+            const data = await response.json();
+            document.getElementById('response').innerText = data.response;
+        }
+    </script>
+</body>
+</html>

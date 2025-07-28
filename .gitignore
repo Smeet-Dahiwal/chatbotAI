@@ -1,0 +1,25 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+.env
+.env.*
+
+# Flask cache and logs
+instance/
+*.log
+
+# VS Code settings (optional)
+.vscode/
+
+# Pytest cache
+.pytest_cache/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
